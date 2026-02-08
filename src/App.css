@@ -1,0 +1,201 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+}
+.todo-app {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 8px;
+  width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+.task {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  background: #eee;
+  width: 100%; /* КРИТИЧНО */
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+  box-sizing: border-box;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
+  cursor: grab;
+}
+.task-checkbox {
+  width: 14px; /* уменьшили */
+  min-width: 14px;
+  max-width: 14px;
+  height: 14px;
+  flex: 0 0 14px; /* не участвует в распределении */
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: #4caf50;
+}
+.task.done {
+  text-decoration: line-through;
+  color: gray;
+  background: #dcdcdc;
+}
+
+.task.important {
+  border-left: 4px solid gold;
+  background: #fffbe6;
+}
+
+.task.deferred {
+  border-left: 4px solid rgb(241, 132, 161);
+  opacity: 0.7;
+}
+
+.search-sort {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.add-task {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.task-text {
+  flex: 1;
+  min-width: 0; /* КРИТИЧНО */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.task-meta {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: #666;
+}
+.task-date {
+  width: 80px; /* подбери под свой формат даты */
+  text-align: right;
+  padding-right: 2px;
+  font-size: 12px;
+  color: hsl(0, 12%, 97%);
+  flex-shrink: 0; /* не сжимается */
+  background: #5f9f61;
+  font-size: 12px;
+}
+.task-status {
+  width: 70px;
+  text-align: right;
+  font-size: 12px;
+  color: hsl(0, 12%, 97%);
+  flex-shrink: 0; /* не сжимается */
+  background: #5f9f61;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.task-status.overdue {
+  background: #fdecea;
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.task-status.today {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.task-status.tomorrow {
+  background: #fff8e1;
+  color: #ef6c00;
+}
+
+.task-status.future {
+  background: #fff8e1;
+  color: #ef6c00;
+}
+.task-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.task-actions button {
+  width: 28px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+  background: #eaeaea;
+}
+
+.filter-btn.active {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.task-actions .delete:hover {
+  background: #c62828;
+}
+.escape {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+.escape button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.task:active {
+  cursor: grabbing;
+}
+
+.task.dragging {
+  opacity: 0.5;
+}
